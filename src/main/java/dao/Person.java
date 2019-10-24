@@ -1,3 +1,5 @@
+package dao;
+
 public class Person {
   private long uid;
   private String name;
