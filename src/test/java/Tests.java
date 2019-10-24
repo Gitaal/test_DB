@@ -23,11 +23,9 @@ public class Tests {
       Person person = new Person(random.nextInt(100), "Egorov" + "_" + i, random.nextInt(100));
       PersonDAO.insertIntoTable(person);
     }
-    log.log(Level.INFO,"Количество добавленных в БД записей: "+n);
     rows = PersonDAO.countRows();
-    log.log(Level.INFO,"Количество записей в БД "+rows);
     assertEquals(rows, n, "Не совпадают значения");
-    log.log(Level.INFO,"Проверка выполнена успешно.");
+    log.log(Level.INFO,"Вколичество строк в таблице = количеству добавленных");
     log.log(Level.INFO, "Тест выполнен успешно!");
 
   }
