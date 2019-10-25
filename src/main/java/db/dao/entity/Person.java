@@ -1,6 +1,7 @@
-package dao;
+package db.dao.entity;
 
-public class Person {
+public class Person implements Comparable<Person> {
+
   private long uid;
   private String name;
   private int age;
@@ -11,7 +12,6 @@ public class Person {
     this.age = age;
 
   }
-
 
   public long getUid() {
     return uid;
@@ -35,5 +35,24 @@ public class Person {
 
   public void setAge(int age) {
     this.age = age;
+  }
+
+  @Override
+  public String toString() {
+    return "Person {" +
+            "uid = " + uid +
+            ", name = '" + name + '\'' +
+            ", age = " + age +
+            '}';
+  }
+
+  @Override
+  public int compareTo(Person o) {
+    if (age == o.age)
+      return 0;
+    else if (age > o.age)
+      return 1;
+    else
+      return -1;
   }
 }
