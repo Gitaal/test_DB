@@ -4,10 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,11 +38,20 @@ public class Tests {
   @Test
   public void Task_2() {
     List<Person> person = PersonDAO.selectFromTable();
-    Collections.sort(person);
 
     int maxAge = person.stream().max(Comparator.comparingInt(Person::getAge)).get().getAge();
     person.stream().filter(p -> p.getAge() == maxAge).forEach(person1 -> LOGGER.log(Level.INFO, person1.getName()));
 
+    LOGGER.log(Level.INFO, "Тест Task_2 выполнен успешно!");
+
+  }
+
+  @Test
+  public void Task_3() {
+    List<Person> person = PersonDAO.selectFromTable();
+    Set<Person> personSet = new TreeSet<>(person);
+
+    personSet.stream().forEach(System.out::println);
     LOGGER.log(Level.INFO, "Тест Task_2 выполнен успешно!");
 
   }
